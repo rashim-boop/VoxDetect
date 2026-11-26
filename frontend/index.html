@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VoxDetect | AI Content Detector</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">Vox<span>Detect</span></div>
+    <div class="status">● AI DETECTION SYSTEM</div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <p class="tagline">CONTENT AUTHENTICITY INTELLIGENCE</p>
+        <h1>AI or <span>Human?</span></h1>
+        <p class="subtitle">
+            Detect AI-generated voices and written content
+            using intelligent analysis.
+        </p>
+    </section>
+
+    <!-- DETECTION OPTIONS -->
+
+    <section class="mode-section">
+        <a href="#audioSection" class="mode-card">
+            <span class="mode-icon">♫</span>
+            <h3>Audio Detection</h3>
+            <p>Analyze voice recordings</p>
+        </a>
+
+        <a href="#textSection" class="mode-card">
+            <span class="mode-icon">▤</span>
+            <h3>Text Detection</h3>
+            <p>Analyze written content</p>
+        </a>
+    </section>
+
+    <!-- AUDIO DETECTION -->
+
+    <section class="upload-card" id="audioSection">
+
+        <div class="section-title">
+            <span class="section-icon">♫</span>
+            <div>
+                <h2>Audio Detection</h2>
+                <p>Upload or record a voice sample</p>
+            </div>
+        </div>
+
+        <div class="drop-area" id="dropArea">
+
+            <div class="upload-icon">♫</div>
+
+            <h3>Drag & Drop Your Audio</h3>
+
+            <p>Supported formats: WAV, MP3, OGG, WebM</p>
+
+            <input type="file"
+                   id="audioFile"
+                   accept="audio/*"
+                   hidden>
+
+            <button class="secondary-btn" id="chooseBtn">
+                Choose Audio
+            </button>
+
+        </div>
+
+        <div class="audio-preview" id="audioPreview" hidden>
+
+            <h3>Audio Preview</h3>
+
+            <audio id="audioPlayer" controls></audio>
+
+            <p id="fileName"></p>
+
+        </div>
+
+        <div class="record-section">
+
+            <p>Or record your voice</p>
+
+            <button id="recordBtn" class="record-btn">
+                ● Start Recording
+            </button>
+
+            <p id="recordStatus">Not recording</p>
+
+        </div>
+
+        <button id="analyzeBtn" class="analyze-btn">
+            Analyze Audio →
+        </button>
+
+        <p id="audioMessage" class="message"></p>
+
+    </section>
+
+    <!-- AUDIO HISTOGRAM -->
+
+    <section class="analysis-section" id="audioAnalysis" hidden>
+
+        <div class="section-heading">
+            <div>
+                <h2>Audio Analysis</h2>
+                <p>Audio signal visualization</p>
+            </div>
+
+            <span class="analysis-tag">HISTOGRAM</span>
+        </div>
+
+        <div class="chart-card">
+
+            <h3>Audio Amplitude Histogram</h3>
+
+            <p>
+                Distribution of audio signal samples
+                across different amplitude ranges.
+            </p>
+
+            <div class="chart-container">
+                <canvas id="histogramChart"></canvas>
+            </div>
+        
+        <div class="chart-container">
+        <h3>Audio Waveform</h3>
+        <canvas id="audioWaveform"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <h3>Audio Feature Radar Chart</h3>
+          <canvas id="audioRadarChart"></canvas>
+        </div>
+
+            <div class="axis-info">
+            <span>X-axis: Audio Amplitude</span>
+                <span>Y-axis: Frequency</span>
+            </div>
+
+        </div>
+
+        <div class="result-card">
+
+            <h3>Voice Detection Result</h3>
+
+            <h2 id="audioPrediction">Awaiting ML Model</h2>
+
+            <p id="audioConfidence">
+                Audio visualization completed.
+                AI prediction is not connected yet.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- TEXT DETECTION -->
+    <section class="text-section" id="textSection">
+    <h2>Text Detection</h2>
+    <p>Upload a document or write your text to check whether it is AI-generated or human-written.</p>
+
+    <!-- Upload option -->
+    <div class="text-upload-area">
+        <h3>Upload Your File</h3>
+        <p>Supported formats: TXT, PDF, DOCX</p>
+
+        <input
+            type="file"
+            id="textFile"
+            accept=".txt,.pdf,.docx"
+        >
+
+        <p id="documentName">No file selected</p>
+        <p id="textMessage"></p>
+    </div>
+
+    <div class="or-divider">OR</div>
+
+    <!-- Writing option -->
+    <div class="text-writing-area">
+        <h3>Write or Paste Your Text</h3>
+
+        <textarea
+            id="textInput"
+            rows="10"
+            placeholder="Start writing or paste your text here..."
+        ></textarea>
+
+        <div class="text-counter">
+            <span id="wordCount">Words: 0</span>
+            <span id="charCount">Characters: 0</span>
+        </div>
+    </div>
+
+    <button id="analyzeTextBtn">Analyze Text</button>
+
+    <div id="textAnalysis" style="display:none;">
+    <h3>Analysis Result</h3>
+
+    <p id="textResult">
+        Your result will appear here after model integration.
+    </p>
+
+    <div class="chart-card">
+        <h3>Text Word Length Histogram</h3>
+        <div class="chart-container">
+            <canvas id="textHistogramChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <h3>Text Feature Radar Chart</h3>
+            <canvas id="textRadarChart"></canvas>
+        </div>
+    </div>
+</div>
+</section>
+
+    <!-- TEXT RESULT -->
+
+    <section class="analysis-section" id="textResultSection" hidden>
+
+        <div class="result-card">
+
+            <h3>Text Detection Result</h3>
+
+            <h2 id="textPrediction">Awaiting ML Model</h2>
+
+            <p id="textResultMessage">
+                Text is ready for analysis.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>VoxDetect © 2026 | AI Content Authenticity Detection</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+

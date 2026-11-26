@@ -1,0 +1,558 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #090e1c;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.navbar {
+    height: 75px;
+    padding: 0 8%;
+    background: #111a2e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #263653;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.logo span,
+.hero h1 span {
+    color: #5d9cff;
+}
+
+.status {
+    color: #48d6a0;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.container {
+    width: 90%;
+    max-width: 950px;
+    margin: auto;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 10px 35px;
+}
+
+.tagline {
+    color: #5d9cff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 7vw, 58px);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: #9eabc3;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* DETECTION MODE CARDS */
+
+.mode-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.mode-card {
+    text-decoration: none;
+    color: white;
+    background: #151f35;
+    border: 1px solid #2b3d5d;
+    border-radius: 13px;
+    padding: 23px;
+    transition: 0.3s;
+}
+
+.mode-card:hover {
+    border-color: #5d9cff;
+    transform: translateY(-3px);
+}
+
+.mode-icon {
+    color: #70a5ff;
+    font-size: 30px;
+}
+
+.mode-card h3 {
+    margin: 12px 0 7px;
+}
+
+.mode-card p {
+    color: #98a7c0;
+    font-size: 13px;
+}
+
+/* COMMON CARDS */
+
+.upload-card,
+.chart-card,
+.result-card {
+    background: #121c31;
+    border: 1px solid #273653;
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 25px;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-icon {
+    font-size: 30px;
+    color: #70a5ff;
+}
+
+.section-title p,
+.section-heading p {
+    color: #98a7c0;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/* AUDIO UPLOAD */
+
+.drop-area {
+    border: 2px dashed #426ba9;
+    border-radius: 13px;
+    padding: 38px 15px;
+    text-align: center;
+    background: #0c1528;
+    transition: 0.3s;
+}
+
+.drop-area.dragging {
+    border-color: #5d9cff;
+    background: #172c4b;
+}
+
+.upload-icon {
+    font-size: 45px;
+    color: #5d9cff;
+    margin-bottom: 12px;
+}
+
+.drop-area h3 {
+    margin-bottom: 10px;
+}
+
+.drop-area p,
+.record-section p {
+    color: #98a7c0;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 22px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.secondary-btn {
+    background: #263d61;
+    color: white;
+}
+
+.audio-preview {
+    margin-top: 22px;
+}
+
+.audio-preview h3 {
+    margin-bottom: 12px;
+}
+
+.audio-preview p {
+    color: #98a7c0;
+    font-size: 13px;
+    margin-top: 8px;
+    word-break: break-all;
+}
+
+audio {
+    width: 100%;
+}
+
+.record-section {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.record-btn {
+    background: #29344b;
+    color: white;
+}
+
+.record-btn.recording {
+    background: #d83f52;
+}
+
+#recordStatus {
+    margin-top: 12px;
+}
+
+.analyze-btn {
+    width: 100%;
+    background: #397df0;
+    color: white;
+    font-size: 16px;
+    padding: 15px;
+}
+
+.message {
+    text-align: center;
+    color: #f1bd63;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+/* HISTOGRAM SECTION */
+
+.analysis-section {
+    margin: 40px 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.analysis-tag {
+    color: #70a5ff;
+    background: #192d4b;
+    border: 1px solid #34527b;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+}
+
+.chart-card h3 {
+    margin-bottom: 10px;
+}
+
+.chart-card > p {
+    color: #98a7c0;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 330px;
+    margin-top: 25px;
+}
+
+.axis-info {
+    display: flex;
+    justify-content: space-between;
+    color: #8fa2c0;
+    font-size: 12px;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.result-card {
+    text-align: center;
+}
+
+.result-card h3 {
+    margin-bottom: 15px;
+}
+
+.result-card h2 {
+    color: #70a5ff;
+    margin: 18px 0;
+}
+
+.result-card p {
+    color: #98a7c0;
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+/* =================================
+   TEXT DETECTION - DARK THEME
+================================= */
+
+.text-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #121c31;
+    border: 1px solid #30364d;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+    color: #f5f5f5;
+}
+
+.text-section h2 {
+    color: #f5f5f5;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.text-section > p {
+    color: #b9bdce;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* Upload and writing boxes */
+
+.text-upload-area,
+.text-writing-area {
+    padding: 25px;
+    border: 2px dashed #426ba9;
+    border-radius: 14px;
+    background: #0c1528;
+    margin-top: 15px;
+}
+
+.text-upload-area {
+    text-align: center;
+}
+
+.text-upload-area h3,
+.text-writing-area h3 {
+    color:  #f5f5f5;
+    margin-bottom: 12px;
+    font-size: 19px;
+}
+
+.text-upload-area p {
+    color: #b9bdce;
+    margin: 10px 0;
+}
+
+#textFile {
+    display: block;
+    margin: 20px auto 10px;
+    max-width: 100%;
+    color: #fff;
+    cursor: pointer;
+}
+
+#documentName {
+    color: #fff;
+    font-weight: 600;
+}
+
+#textMessage {
+    color: #55d99a;
+    font-size: 14px;
+}
+
+/* OR divider */
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+    color:  #f5f5f5; 
+    font-weight: 600;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #424760;
+}
+
+/* Writing area */
+
+#textInput {
+    width: 100%;
+    min-height: 220px;
+    padding: 18px;
+    margin-top: 12px;
+    border: 1px solid #46516d;
+    border-radius: 10px;
+    resize: vertical;
+    outline: none;
+    font-size: 15px;
+    line-height: 1.7;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    background: #121522;
+    color: #ffffff;
+}
+
+#textInput::placeholder {
+    color: #9298ad;
+}
+
+#textInput:focus {
+    border-color: #70a5ff;
+    box-shadow: 0 0 0 3px rgba(22, 168, 229, 0.15);
+}
+
+/* Counter */
+
+.text-counter {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 12px;
+    color: #b9bdce;
+    font-size: 13px;
+}
+
+/* Analyze button */
+
+#analyzeTextBtn {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #397df0;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#analyzeTextBtn:hover {
+    background:  #397df0;
+    transform: translateY(-2px);
+}
+
+/* Result section */
+
+#textAnalysis {
+    margin-top: 25px;
+    padding: 20px;
+    background: #20263b;
+    border: 1px solid #3b4966;
+    border-radius: 12px;
+    color: #ffffff;
+}
+
+#textAnalysis h3 {
+    color: #ffe66d;
+}
+
+
+
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .status {
+        font-size: 9px;
+    }
+
+    .mode-section {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-card,
+    .chart-card,
+    .result-card {
+        padding: 20px;
+    }
+
+    .chart-container {
+        height: 270px;
+    }
+
+    .axis-info {
+        flex-direction: column;
+    }
+
+    .text-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
+
+/* text histogram*/
+#textAnalysis .chart-card {
+    margin-top: 20px;
+    padding: 20px;
+    background: #17243b;
+    border-radius: 12px;
+}
+
+#textAnalysis .chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+/* radar*/
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 350px;
+    margin: 30px auto;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+}

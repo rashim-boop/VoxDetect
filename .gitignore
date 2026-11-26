@@ -1,0 +1,12 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.cache/
+audio_dataset/
+temp/
+uploads/
+.env
+.DS_Store
+# Dataset files
+*.parquet
